@@ -8,117 +8,182 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal:     #28B5C8;
-      --text:     #1c1c1e;
-      --secondary:#6e6e73;
-      --tertiary: #aeaeb2;
-      --border:   #e5e5ea;
-      --bg:       #f2f2f7;
-      --card:     #ffffff;
-      --radius:   14px;
+      --bg: #0a0f0f;
+      --bg-soft: #101717;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --text: #f2f6f5;
+      --muted: rgba(242, 246, 245, 0.65);
+      --accent: #0fb9b1;
+      --accent-soft: #8ce7e0;
+      --accent-bright: #c6fff3;
+      --cta: #b7f78a;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 28px;
+      --max: 1200px;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 22% 16%, rgba(15, 185, 177, 0.22), transparent 24%),
+        radial-gradient(circle at 76% 20%, rgba(15, 185, 177, 0.10), transparent 18%),
+        var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
       line-height: 1.7;
       font-size: 16px;
-      padding: 40px 16px 80px;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 680px;
+    .wrap {
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Header card */
-    .header-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      margin-bottom: 16px;
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--panel-border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 15, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 20px;
-    }
-
-    .brand img {
-      width: 60px;
-      height: 60px;
-      border-radius: 13px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .brand-name {
-      font-size: 20px;
-      font-weight: 700;
+      gap: 10px;
+      text-decoration: none;
       color: var(--text);
-      letter-spacing: -0.3px;
-    }
-
-    .brand-tagline {
-      font-size: 13px;
-      color: var(--secondary);
-      margin-top: 3px;
-    }
-
-    .doc-title {
-      font-size: 22px;
       font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.4px;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
     }
 
-    .doc-subtitle {
-      font-size: 13px;
-      color: var(--secondary);
-      margin-top: 4px;
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
     }
 
-    /* Section cards */
-    .section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 10px;
+    .button {
+      display: inline-block;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .button:hover { opacity: 0.85; }
+
+    .button-primary {
+      background: var(--cta);
+      color: #0a0f0f;
     }
 
-    .section h2 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
+    /* Page content */
+    .page-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Page hero */
+    .page-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 8px;
     }
 
-    .section p {
-      font-size: 14px;
-      color: var(--secondary);
+    .page-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--accent-bright);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
     }
 
-    .section p + p {
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
       margin-top: 10px;
     }
 
-    .section p a {
-      color: var(--teal);
+    /* Sections */
+    section {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    section h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    section p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    section p + p {
+      margin-top: 10px;
+    }
+
+    section a {
+      color: var(--accent-soft);
       text-decoration: none;
     }
-    .section p a:hover { text-decoration: underline; }
+    section a:hover { text-decoration: underline; }
+
+    /* Contact button */
+    .contact-btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 11px 24px;
+      background: var(--accent);
+      color: #0a0f0f;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .contact-btn:hover { opacity: 0.85; text-decoration: none; }
 
     /* FAQ items */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
     .faq-item {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .faq-item:first-child {
+      padding-top: 0;
     }
 
     .faq-item:last-child {
@@ -126,126 +191,125 @@
       padding-bottom: 0;
     }
 
-    .faq-item:first-child {
-      padding-top: 0;
-    }
-
     .faq-q {
-      font-size: 14px;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .faq-a {
-      font-size: 14px;
-      color: var(--secondary);
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
-    /* Contact button */
-    .contact-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: var(--teal);
-      color: #fff;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
+    .faq-a a {
+      color: var(--accent-soft);
       text-decoration: none;
     }
-    .contact-btn:hover { opacity: 0.9; text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding-top: 32px;
-      font-size: 13px;
-      color: var(--tertiary);
+      border-top: 1px solid var(--panel-border);
+      padding: 28px 0;
     }
 
-    footer a {
-      color: var(--teal);
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-row a {
+      color: var(--muted);
       text-decoration: none;
+      transition: color 0.15s;
     }
-    footer a:hover { text-decoration: underline; }
+    .footer-row a:hover { color: var(--accent-soft); }
 
-    @media (max-width: 480px) {
-      .header-card, .section { padding: 18px 16px; }
-      .doc-title { font-size: 19px; }
+    @media (max-width: 600px) {
+      .page-hero h1 { font-size: 1.9rem; }
+      .button-primary { display: none; }
+      .footer-row { justify-content: center; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <div class="header-card">
-      <div class="brand">
-        <img src="appicon.png" alt="Just Do Three" />
-        <div>
-          <div class="brand-name">Just Do Three</div>
-          <div class="brand-tagline">Focus on what matters most.</div>
-        </div>
-      </div>
-      <div class="doc-title">Support</div>
-      <div class="doc-subtitle">We're here to help.</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="appicon.png" alt="Just Do Three" class="brand-mark">
+        <span>Just Do Three</span>
+      </a>
+      <a class="button button-primary" href="#">Download on the App Store</a>
+    </div>
+  </header>
+
+  <div class="page-content">
+
+    <div class="page-hero">
+      <h1>Support</h1>
+      <p>We're here to help.</p>
     </div>
 
-    <div class="section">
+    <section>
       <h2>Contact Support</h2>
       <p>Have a question or ran into an issue? Send us an email and we'll get back to you as soon as we can.</p>
       <a class="contact-btn" href="mailto:admin@justdothree.com">Email Support</a>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
 
-      <div class="faq-item">
-        <div class="faq-q">What happens to unfinished tasks at the end of the day?</div>
-        <div class="faq-a">When you open the app on a new day, you'll be prompted to roll over any uncompleted tasks. You can keep them on your list, send them back to the backlog, or dismiss them. Each rollover is tracked so you can spot tasks you keep avoiding.</div>
+        <div class="faq-item">
+          <div class="faq-q">What happens to unfinished tasks at the end of the day?</div>
+          <div class="faq-a">When you open the app on a new day, you'll be prompted to roll over any uncompleted tasks. You can keep them on your list, send them back to the backlog, or dismiss them. Each rollover is tracked so you can spot tasks you keep avoiding.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is my data backed up?</div>
+          <div class="faq-a">All data is stored locally on your device. If you have iCloud Drive enabled for Just Do Three in your device Settings, your tasks and history will sync automatically across your devices via iCloud.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How do I set up morning and evening reminders?</div>
+          <div class="faq-a">Go to Settings → Reminders. Toggle on Morning reminder or Evening check-in, then tap the time to choose when you'd like to be reminded. Notifications are scheduled locally — no account needed.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How do I delete a task permanently?</div>
+          <div class="faq-a">In the Backlog tab, tap the trash icon next to any task and confirm deletion. Tasks can also be removed from today's list using the ··· menu on each task card — this returns them to the backlog rather than deleting them.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Can I import a list of tasks all at once?</div>
+          <div class="faq-a">Yes. Tap the import icon in the Backlog tab (or use the Add Task sheet) to upload a .txt or .csv file. Each line becomes a task. For CSV files, only the first column is used.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does Just Do Three collect any of my data?</div>
+          <div class="faq-a">No. The app collects no personal information, analytics, or usage data. See our <a href="privacy-policy.html">Privacy Policy</a> for full details.</div>
+        </div>
+
       </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How do I restore my Premium purchase on a new device?</div>
-        <div class="faq-a">Go to Settings → Premium → Restore purchase. Make sure you're signed into the same Apple ID used for the original purchase. Premium is a one-time purchase tied to your Apple ID — no subscription needed.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Is my data backed up?</div>
-        <div class="faq-a">All data is stored locally on your device. If you have iCloud Drive enabled for Just Do Three in your device Settings, your tasks and history will sync automatically across your devices via iCloud.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How do I set up morning and evening reminders?</div>
-        <div class="faq-a">Go to Settings → Reminders. Toggle on Morning reminder or Evening check-in, then tap the time to choose when you'd like to be reminded. Notifications are scheduled locally — no account needed.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What's included in Premium?</div>
-        <div class="faq-a">Premium is a one-time purchase that unlocks: 7-day advance planning, day/week/month/year analytics, weekly and monthly recurring tasks, stretch goal tracking, bulk task import from .txt or .csv files, and the most-avoided tasks report.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How do I delete a task permanently?</div>
-        <div class="faq-a">In the Backlog tab, tap the trash icon next to any task and confirm deletion. Tasks can also be removed from today's list using the ··· menu on each task card — this returns them to the backlog rather than deleting them.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Can I import a list of tasks all at once?</div>
-        <div class="faq-a">Yes — with Premium. Tap the import icon in the Backlog tab (or use the Add Task sheet) to upload a .txt or .csv file. Each line becomes a task. For CSV files, only the first column is used.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Does Just Do Three collect any of my data?</div>
-        <div class="faq-a">No. The app collects no personal information, analytics, or usage data. See our <a href="privacy-policy.html">Privacy Policy</a> for full details.</div>
-      </div>
-
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Todd Vallie. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms-of-use.html">Terms of Use</a></p>
-    </footer>
+    </section>
 
   </div>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Just Do Three</span>
+      <span><a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a></span>
+    </div>
+  </footer>
+
 </body>
 </html>

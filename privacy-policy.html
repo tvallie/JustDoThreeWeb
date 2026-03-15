@@ -8,161 +8,234 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal:     #28B5C8;
-      --text:     #1c1c1e;
-      --secondary:#6e6e73;
-      --tertiary: #aeaeb2;
-      --border:   #e5e5ea;
-      --bg:       #f2f2f7;
-      --card:     #ffffff;
-      --radius:   14px;
+      --bg: #0a0f0f;
+      --bg-soft: #101717;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --text: #f2f6f5;
+      --muted: rgba(242, 246, 245, 0.65);
+      --accent: #0fb9b1;
+      --accent-soft: #8ce7e0;
+      --accent-bright: #c6fff3;
+      --cta: #b7f78a;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 28px;
+      --max: 1200px;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 22% 16%, rgba(15, 185, 177, 0.22), transparent 24%),
+        radial-gradient(circle at 76% 20%, rgba(15, 185, 177, 0.10), transparent 18%),
+        var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
       line-height: 1.7;
       font-size: 16px;
-      padding: 40px 16px 80px;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 680px;
+    .wrap {
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Header card */
-    .header-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      margin-bottom: 16px;
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--panel-border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 15, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 20px;
-    }
-
-    .brand img {
-      width: 60px;
-      height: 60px;
-      border-radius: 13px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .brand-name {
-      font-size: 20px;
-      font-weight: 700;
+      gap: 10px;
+      text-decoration: none;
       color: var(--text);
-      letter-spacing: -0.3px;
-    }
-
-    .brand-tagline {
-      font-size: 13px;
-      color: var(--secondary);
-      margin-top: 3px;
-    }
-
-    .doc-title {
-      font-size: 22px;
       font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.4px;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
     }
 
-    .doc-date {
-      font-size: 13px;
-      color: var(--secondary);
-      margin-top: 4px;
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
     }
 
-    /* Section cards */
-    .section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 10px;
+    .button {
+      display: inline-block;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .button:hover { opacity: 0.85; }
+
+    .button-primary {
+      background: var(--cta);
+      color: #0a0f0f;
     }
 
-    .section h2 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
+    /* Page content */
+    .page-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Page hero */
+    .page-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 8px;
     }
 
-    .section p {
-      font-size: 14px;
-      color: var(--secondary);
+    .page-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--accent-bright);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
     }
 
-    .section ul {
-      font-size: 14px;
-      color: var(--secondary);
-      padding-left: 0;
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Sections */
+    section {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    section h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    section p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    section p + p {
+      margin-top: 10px;
+    }
+
+    section a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+    section a:hover { text-decoration: underline; }
+
+    /* Lists */
+    section ul {
       list-style: none;
-      margin-top: 6px;
+      padding: 0;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .section ul li::before {
-      content: "•  ";
-      color: var(--teal);
+    section ul li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding-left: 1.4em;
+      position: relative;
     }
 
-    .section ul li {
-      margin-bottom: 4px;
+    section ul li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 0.85rem;
+      line-height: 1.7;
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding-top: 32px;
-      font-size: 13px;
-      color: var(--tertiary);
+      border-top: 1px solid var(--panel-border);
+      padding: 28px 0;
     }
 
-    footer a {
-      color: var(--teal);
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-row a {
+      color: var(--muted);
       text-decoration: none;
+      transition: color 0.15s;
     }
-    footer a:hover { text-decoration: underline; }
+    .footer-row a:hover { color: var(--accent-soft); }
 
-    @media (max-width: 480px) {
-      .header-card, .section { padding: 18px 16px; }
-      .doc-title { font-size: 19px; }
+    @media (max-width: 600px) {
+      .page-hero h1 { font-size: 1.9rem; }
+      .button-primary { display: none; }
+      .footer-row { justify-content: center; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <div class="header-card">
-      <div class="brand">
-        <img src="appicon.png" alt="Just Do Three" />
-        <div>
-          <div class="brand-name">Just Do Three</div>
-          <div class="brand-tagline">Focus on what matters most.</div>
-        </div>
-      </div>
-      <div class="doc-title">Privacy Policy</div>
-      <div class="doc-date">Effective March 7, 2026</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="appicon.png" alt="Just Do Three" class="brand-mark">
+        <span>Just Do Three</span>
+      </a>
+      <a class="button button-primary" href="#">Download on the App Store</a>
+    </div>
+  </header>
+
+  <div class="page-content">
+
+    <div class="page-hero">
+      <h1>Privacy Policy</h1>
+      <p>Effective March 7, 2026</p>
     </div>
 
-    <div class="section">
+    <section>
       <h2>Overview</h2>
       <p>Just Do Three is designed with your privacy in mind. The app stores all of your data locally on your device. We do not collect, transmit, or share any personal information.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Data We Do Not Collect</h2>
       <p>We do not collect:</p>
       <ul>
@@ -173,53 +246,52 @@
         <li>Crash reports or analytics (beyond what Apple provides to all developers)</li>
         <li>Any usage telemetry</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Data Stored on Your Device</h2>
       <p>All app data — including tasks, daily plans, and completion history — is stored exclusively on your device using Apple's SwiftData framework. This data never leaves your device unless you explicitly enable iCloud sync in your device Settings.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>iCloud Sync (Optional)</h2>
       <p>If you have iCloud Drive enabled for Just Do Three in your device Settings, Apple may sync your data across your devices via iCloud. This sync is governed by Apple's iCloud Terms and Conditions and Privacy Policy. We do not have access to data stored in your iCloud account.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Notifications</h2>
       <p>Just Do Three offers optional morning and evening reminders. Notifications are scheduled locally on your device using Apple's notification framework. No notification content is sent to or stored on any external server.</p>
-      <p style="margin-top: 10px;">You can disable notifications at any time in your device Settings or within the app.</p>
-    </div>
+      <p>You can disable notifications at any time in your device Settings or within the app.</p>
+    </section>
 
-    <div class="section">
-      <h2>In-App Purchases</h2>
-      <p>Just Do Three offers a one-time premium unlock via Apple's App Store. All payment processing is handled entirely by Apple. We never see or store your payment information. Your purchase receipt is verified through Apple's StoreKit framework on-device.</p>
-    </div>
-
-    <div class="section">
+    <section>
       <h2>Third-Party Services</h2>
       <p>Just Do Three does not integrate with any third-party analytics, advertising, or data-collection services.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Children's Privacy</h2>
       <p>Just Do Three does not knowingly collect any personal information from anyone, including children under the age of 13. Because no data is collected, the app is suitable for all ages.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Changes to This Policy</h2>
       <p>If we update this Privacy Policy, the new version will be included in an app update and reflected here with a new effective date. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
       <h2>Contact</h2>
       <p>If you have questions about this Privacy Policy, please reach out via the App Store support link on the Just Do Three product page.</p>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Todd Vallie. All rights reserved. &nbsp;·&nbsp; <a href="terms-of-use.html">Terms of Use</a></p>
-    </footer>
+    </section>
 
   </div>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Just Do Three</span>
+      <span><a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a></span>
+    </div>
+  </footer>
+
 </body>
 </html>
