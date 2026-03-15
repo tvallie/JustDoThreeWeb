@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features — Just Do Three</title>
+  <meta name="description" content="Everything JD3 can do — built to keep things simple, flexible, and out of your way." />
+  <style>
+    :root {
+      --bg: #0a0f0f;
+      --bg-soft: #101717;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --text: #f2f6f5;
+      --muted: rgba(242, 246, 245, 0.65);
+      --accent: #0fb9b1;
+      --accent-soft: #8ce7e0;
+      --accent-bright: #c6fff3;
+      --cta: #b7f78a;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 28px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 22% 16%, rgba(15, 185, 177, 0.22), transparent 24%),
+        radial-gradient(circle at 76% 20%, rgba(15, 185, 177, 0.10), transparent 18%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 15, 15, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      flex: 0 0 auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      background: var(--cta);
+      color: #0a0f0f;
+    }
+
+    .button-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.88);
+    }
+
+    .page-hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .page-hero .kicker {
+      margin: 0 0 14px;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.8rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin: 0 0 20px;
+      color: var(--accent-bright);
+    }
+
+    .page-hero p {
+      max-width: 640px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-alt {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature-block {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .feature-label {
+      position: sticky;
+      top: 100px;
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.8rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-body {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
+
+    .feature-body p {
+      margin: 0 0 18px;
+    }
+
+    .feature-body p:last-child {
+      margin: 0;
+    }
+
+    .feature-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .feature-body .highlight {
+      color: var(--accent-bright);
+      font-weight: 600;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .detail-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .detail-list li::before {
+      content: "→";
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .metric-card {
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+    }
+
+    .metric-card .metric-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .metric-card .metric-desc {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .optional-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      background: rgba(15,185,177,0.12);
+      border: 1px solid rgba(15,185,177,0.25);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: 52px 34px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(15,185,177,0.16), rgba(255,255,255,0.03));
+      border: 1px solid rgba(15,185,177,0.22);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-box .lead {
+      max-width: 580px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.94rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .feature-block { grid-template-columns: 1fr; gap: 24px; }
+      .feature-label { position: static; }
+      .metric-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .section { padding: 60px 0; }
+      .button { width: 100%; }
+      .cta-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="appicon.png" alt="Just Do Three" class="brand-mark">
+        <span>Just Do Three</span>
+      </a>
+      <a class="button button-primary" href="#">Download on the App Store</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="wrap">
+        <p class="kicker">Features</p>
+        <h1>Everything you need.<br>Nothing you don't.</h1>
+        <p>JD3 is simple by design — but there's more under the hood when you need it. Here's what it can do.</p>
+      </div>
+    </div>
+
+    <!-- Backlog -->
+    <section class="section">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Backlog</p>
+          <h2>Your tasks, ready when you are.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Start by building your backlog — a running list of everything you want to get done.
+            It's there when you need it, completely out of the way when you don't.
+          </p>
+          <p>
+            <strong>Add tasks one at a time</strong>, paste in a list, or upload a file to get your backlog seeded quickly.
+            No fussing with folders, tags, or categories. Just tasks.
+          </p>
+          <p>
+            Each day, you pick three from your backlog. The rest waits quietly until you're ready.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planning -->
+    <section class="section section-alt">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Planning <span class="optional-badge">Optional</span></p>
+          <h2>Plan ahead — or don't.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Some people like to plan. JD3 supports that without forcing it on everyone.
+          </p>
+          <p>
+            If you want, you can schedule your three tasks for each day up to <strong>7 days out</strong>.
+            Lock in Monday's priorities on Sunday night. Map out your whole week. Or just plan tomorrow.
+          </p>
+          <p class="highlight">
+            Totally optional. Just do today if that's all you need.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slips & Rollovers -->
+    <section class="section">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Rollovers</p>
+          <h2>When plans change, no guilt.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Life happens. If something doesn't get done, JD3 doesn't make you feel bad about it.
+          </p>
+          <ul class="detail-list">
+            <li>Roll a task to the next day with one tap</li>
+            <li>Send it back to your backlog to tackle later</li>
+            <li>Or just let it go — remove it entirely</li>
+          </ul>
+          <p style="margin-top: 20px;">
+            No red badges. No overdue guilt spiral. Just a clean slate each morning and the
+            flexibility to adjust as your priorities shift.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="section section-alt">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Progress</p>
+          <h2>Simple metrics that actually mean something.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            JD3 tracks your progress without burying you in charts. You'll see what matters —
+            enough to feel momentum, not so much that it becomes another thing to manage.
+          </p>
+          <div class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-title">Daily Streak</div>
+              <div class="metric-desc">How many days in a row you've completed your three</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Completion Rate</div>
+              <div class="metric-desc">What percentage of your daily threes you're finishing</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Tasks Done</div>
+              <div class="metric-desc">A running total of everything you've checked off</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">History</div>
+              <div class="metric-desc">See what you completed on any past day</div>
+            </div>
+          </div>
+          <p style="margin-top: 20px;" class="highlight">
+            Designed to motivate, not overwhelm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-box">
+          <p class="kicker">Ready?</p>
+          <h2>Start with three today.</h2>
+          <p class="lead">Simple to start. Flexible when you need it. Always focused on what matters most.</p>
+          <div class="cta-actions">
+            <a class="button button-primary" href="#">Download on the App Store</a>
+            <a class="button button-secondary" href="index.html">← Back to home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Just Do Three</span>
+      <span><a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a></span>
+    </div>
+  </footer>
+</body>
+</html>

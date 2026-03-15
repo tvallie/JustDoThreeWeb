@@ -125,7 +125,7 @@
 
     .phone-area {
       position: relative;
-      min-height: 640px;
+      min-height: 420px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -418,6 +418,24 @@
       font-weight: 600;
     }
 
+    .philosophy-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .philosophy-step {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .philosophy-step span {
+      color: var(--accent-soft);
+      margin-right: 8px;
+    }
+
     .screens-head {
       display: flex;
       align-items: end;
@@ -544,75 +562,24 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">
-            <span class="dot"></span>
-            Minimal productivity
-          </div>
-
           <h1>Just do three.</h1>
 
-          <p class="hero-copy">
-            A beautifully simple to-do app for people who are tired of giant lists,
-            endless organization, and fake productivity.
-          </p>
+          <div style="display:flex; align-items:center; gap:12px; margin-top:24px;">
+            <div class="three-dots" aria-hidden="true" style="margin:0;">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="hero-copy" style="margin:0;">Three priorities, easy productivity.</p>
+          </div>
 
           <div class="hero-actions">
             <a class="button button-primary" href="#download">Download on the App Store</a>
             <a class="button button-secondary" href="#how">See how it works</a>
           </div>
-
-          <div class="three-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-            <strong style="font-size:0.98rem; color:rgba(255,255,255,0.6); font-weight:600;">Three priorities. One clear day.</strong>
-          </div>
         </div>
 
         <div class="phone-area">
           <div class="glow"></div>
-          <div class="phone">
-            <div class="phone-screen">
-              <div class="status">
-                <span>9:41</span>
-                <span>◦◦◦</span>
-              </div>
-
-              <div class="logo-row">
-                <div class="mini-logo">J3</div>
-                <div class="today">Today</div>
-              </div>
-
-              <div class="tasks">
-                <div class="task">
-                  <div class="num">1</div>
-                  <div>
-                    <div class="task-title">Send proposal</div>
-                    <div class="task-sub">Today’s priority</div>
-                  </div>
-                </div>
-
-                <div class="task">
-                  <div class="num">2</div>
-                  <div>
-                    <div class="task-title">Call contractor</div>
-                    <div class="task-sub">Keep it simple</div>
-                  </div>
-                </div>
-
-                <div class="task">
-                  <div class="num">3</div>
-                  <div>
-                    <div class="task-title">Practice guitar</div>
-                    <div class="task-sub">Finish with momentum</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="focus-card">
-                <p>Focus score</p>
-                <p>3 things.<br />No clutter.</p>
-              </div>
-            </div>
-          </div>
+          <img src="images/jdtscreenshot.PNG" alt="Just Do Three app screenshot" class="phone" style="padding:0; background:none; border:none; box-shadow:var(--shadow); width:260px; max-width:100%; border-radius:36px; transform:rotate(-8deg);" />
         </div>
       </div>
     </section>
@@ -623,7 +590,7 @@
           <p class="kicker">How it works</p>
           <h2>Simple on purpose.</h2>
           <p class="lead">
-            Most to-do apps become another project to manage. Just Do Three strips that away
+            Most to-do apps become another project to manage. JD3 strips that away
             and helps you focus on what actually matters today.
           </p>
         </div>
@@ -631,21 +598,27 @@
         <div class="cards">
           <article class="card">
             <div class="card-number">1</div>
-            <h3>Choose your three</h3>
+            <h3>Find your three</h3>
             <p>Pick only the three tasks that matter most today.</p>
           </article>
 
           <article class="card">
             <div class="card-number">2</div>
-            <h3>Stay focused</h3>
+            <h3>Focus on them</h3>
             <p>Keep your day clean and visible instead of buried in a giant backlog.</p>
           </article>
 
           <article class="card">
             <div class="card-number">3</div>
-            <h3>Finish with momentum</h3>
+            <h3>Finish them</h3>
             <p>Check off what matters and come back tomorrow with a fresh start.</p>
           </article>
+        </div>
+
+        <div style="margin-top:40px;">
+          <a href="features.html" style="color:var(--accent-soft); font-size:1rem; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+            See everything JD3 can do →
+          </a>
         </div>
       </div>
     </section>
@@ -654,19 +627,31 @@
       <div class="wrap philosophy">
         <div>
           <p class="kicker">Philosophy</p>
-          <h2>If everything matters, nothing does.</h2>
+          <h2>Trying to do everything means finishing nothing.</h2>
         </div>
 
         <div class="philosophy-copy">
           <p>
-            Just Do Three is built around one idea: your day gets better when you stop
+            JD3 is built around one idea: your day gets better when you stop
             pretending you can do everything at once.
           </p>
           <p>
-            Pick three real priorities. Finish what counts. Let the rest wait.
+            Most to-do lists eventually turn into massive backlogs. When you look at them,
+            it's easy to jump between tasks — a little progress here, a little progress there.
           </p>
           <p>
-            Less organizing. Less guilt. More momentum.
+            But constant switching makes it feel like nothing actually gets done.
+          </p>
+          <p>
+            JD3 takes a different approach.
+          </p>
+          <div class="philosophy-steps">
+            <div class="philosophy-step"><span>①</span> Find your three</div>
+            <div class="philosophy-step"><span>②</span> Focus on them</div>
+            <div class="philosophy-step"><span>③</span> Finish them</div>
+          </div>
+          <p>
+            Less switching. Less overwhelm. More progress.
           </p>
         </div>
       </div>
