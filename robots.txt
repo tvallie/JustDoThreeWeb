@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://justdothree.com/sitemap.xml
