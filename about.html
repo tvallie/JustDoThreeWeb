@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Just Do Three</title>
+  <meta name="description" content="Just Do Three is an indie iOS app built around one idea: three priorities a day is enough. Built by an independent developer." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0f0f;
+      --bg-soft: #101717;
+      --panel: rgba(255,255,255,0.04);
+      --panel-border: rgba(255,255,255,0.1);
+      --text: #f2f6f5;
+      --muted: rgba(242,246,245,0.65);
+      --accent: #0fb9b1;
+      --accent-soft: #8ce7e0;
+      --cta: #b7f78a;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --max: 900px;
+      --radius: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,15,15,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-mark { height: 36px; width: auto; display: block; }
+
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .button:hover { opacity: 0.85; transform: translateY(-1px); }
+    .button-primary { background: var(--cta); color: #0a0f0f; }
+    .button-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid rgba(255,255,255,0.22);
+    }
+
+    /* ── Page hero ── */
+    .page-hero {
+      padding: 80px 0 72px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-hero .kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin-inline: auto;
+    }
+
+    /* ── About content ── */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .about-block {
+      margin-bottom: 56px;
+    }
+
+    .about-block h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .about-block p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .about-block p:last-child { margin-bottom: 0; }
+
+    .about-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0 0 56px;
+    }
+
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 0 48px;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.94rem;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      flex-wrap: wrap;
+    }
+    footer a { color: rgba(255,255,255,0.48); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 980px) {
+      nav ul { display: none; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .page-hero { padding: 60px 0 52px; }
+      .about-content { padding: 52px 24px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="images/bulbwebsitewords.png" alt="Just Do Three" class="brand-mark">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html#how">How it Works</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </nav>
+      <a class="button button-secondary" href="https://apps.apple.com/us/app/just-do-three/id6760262038">Get the app</a>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="kicker">About</p>
+      <h1>Built around one idea.</h1>
+      <p>Three priorities a day is enough. Everything else is noise.</p>
+    </div>
+  </div>
+
+  <div class="about-content">
+
+    <div class="about-block">
+      <h2>What is Just Do Three?</h2>
+      <p>Just Do Three is a free iOS app for people who are tired of giant to-do lists that never get shorter. Instead of tracking everything, JD3 asks you to pick three tasks that matter most today — and do those.</p>
+      <p>That's it. No projects, no tags, no productivity theater. Just three things. Every day.</p>
+    </div>
+
+    <hr class="about-divider" />
+
+    <div class="about-block">
+      <h2>Built by an indie developer</h2>
+      <p>Just Do Three is made by one person — a developer who got frustrated with their own to-do list and decided to build something better. No company, no team, no investors. Just a person who wanted a simpler way to get through the day.</p>
+      <p>The app is free because it should be. A simple daily productivity tool shouldn't cost a subscription. JD3 has no ads, no tracking, and no upsells — just the app.</p>
+      <p>If you find it useful, the best thing you can do is leave a review on the App Store. It genuinely makes a difference for an indie app.</p>
+    </div>
+
+    <hr class="about-divider" />
+
+    <div class="about-block">
+      <h2>The philosophy</h2>
+      <p>Most productivity systems fail because they try to capture everything. The list grows, the backlog gets intimidating, and eventually you avoid the app entirely. Sound familiar?</p>
+      <p>Just Do Three is built on the opposite idea: ruthless simplicity. You get three slots for today. Unfinished tasks roll over. Your backlog is there when you need it, but it doesn't dominate your day.</p>
+      <p>Finishing three real things beats starting fifteen.</p>
+    </div>
+
+    <hr class="about-divider" />
+
+    <div class="about-block">
+      <h2>Get the app</h2>
+      <p>Free on the App Store. No subscriptions, no ads, no catch.</p>
+      <div class="about-cta">
+        <a class="button button-primary" href="https://apps.apple.com/us/app/just-do-three/id6760262038">Download on the App Store</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Just Do Three</span>
+      <span><a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
