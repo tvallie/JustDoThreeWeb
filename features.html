@@ -347,7 +347,6 @@
       .feature-block { grid-template-columns: 1fr; gap: 24px; }
       .feature-label { position: static; }
       .metric-grid { grid-template-columns: 1fr; }
-      .concept-grid { grid-template-columns: 1fr !important; }
     }
 
     @media (max-width: 640px) {
@@ -390,36 +389,32 @@
       </div>
     </div>
 
-    <!-- Today concept -->
+    <!-- Today -->
     <section class="section section-alt">
-      <div class="wrap">
-        <div style="max-width:760px; margin:0 auto 52px; text-align:center;">
-          <p class="kicker">The idea</p>
-          <h2 style="font-size:clamp(2rem,4vw,3rem); letter-spacing:-0.03em; margin:0 0 20px;">One screen. Three tasks. That's your day.</h2>
-          <p style="font-size:1.15rem; line-height:1.85; color:var(--muted); margin:0;">
-            Most to-do apps become another project to manage — endless lists, categories, and notifications that
-            make you feel busy without actually moving the needle. JD3 takes a different approach.
-            Every morning you pick the <span style="color:var(--accent-bright);font-weight:600;">three things that matter most</span>,
-            and that's what your day looks like. Nothing else cluttering the screen. No guilt about what didn't make the cut.
-            Just a clear, honest view of what you're actually going to finish today.
-          </p>
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Today</p>
+          <h2>One screen. Three tasks.</h2>
         </div>
-        <div class="concept-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-          <div style="padding:28px 24px; border-radius:20px; background:var(--panel); border:1px solid var(--panel-border);">
-            <div style="font-size:1.8rem; font-weight:800; color:var(--accent); margin-bottom:12px;">①</div>
-            <h3 style="margin:0 0 10px; font-size:1.1rem; letter-spacing:-0.01em;">Find your three</h3>
-            <p style="margin:0; color:var(--muted); font-size:0.97rem; line-height:1.7;">Pick only the tasks that matter most right now. Everything else waits.</p>
-          </div>
-          <div style="padding:28px 24px; border-radius:20px; background:var(--panel); border:1px solid var(--panel-border);">
-            <div style="font-size:1.8rem; font-weight:800; color:var(--accent); margin-bottom:12px;">②</div>
-            <h3 style="margin:0 0 10px; font-size:1.1rem; letter-spacing:-0.01em;">Focus on them</h3>
-            <p style="margin:0; color:var(--muted); font-size:0.97rem; line-height:1.7;">Your today screen shows exactly three — clean, visible, distraction-free.</p>
-          </div>
-          <div style="padding:28px 24px; border-radius:20px; background:var(--panel); border:1px solid var(--panel-border);">
-            <div style="font-size:1.8rem; font-weight:800; color:var(--accent); margin-bottom:12px;">③</div>
-            <h3 style="margin:0 0 10px; font-size:1.1rem; letter-spacing:-0.01em;">Finish them</h3>
-            <p style="margin:0; color:var(--muted); font-size:0.97rem; line-height:1.7;">Check them off and come back tomorrow with a fresh start. That's a win.</p>
-          </div>
+        <div class="feature-body">
+          <p>
+            Most to-do apps quietly become another project to manage — endless lists, categories,
+            and notifications that make you feel busy without actually moving the needle.
+          </p>
+          <p>
+            JD3 works differently. <strong>Every day starts with one question:</strong> what are the
+            three things that matter most right now? You pick them, they go on your today screen,
+            and that's your whole day in front of you. Nothing else cluttering the view.
+          </p>
+          <p>
+            No guilt about what didn't make the cut. No context-switching between fifty open items.
+            Just a <span class="highlight">clear, honest picture</span> of what you're actually going to finish today.
+          </p>
+          <ul class="detail-list">
+            <li>Pick your three from your backlog each morning</li>
+            <li>Your today screen shows only those three — nothing more</li>
+            <li>Check them off and come back tomorrow with a clean slate</li>
+          </ul>
         </div>
       </div>
     </section>
