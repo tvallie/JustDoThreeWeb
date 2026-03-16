@@ -93,6 +93,49 @@
       color: #0a0f0f;
     }
 
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul a {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--text); }
+
+    .nav-appstore {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-appstore img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-free {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+    }
+
+    @media (max-width: 980px) {
+      nav ul { display: none; }
+    }
+
     /* Page content */
     .page-content {
       max-width: 760px;
@@ -218,7 +261,20 @@
       <a class="brand" href="index.html">
         <img src="images/bulbwebsitewords.png" alt="Just Do Three" class="brand-mark">
       </a>
-      <a class="button button-primary" href="https://apps.apple.com/us/app/just-do-three/id6760262038">Download on the App Store</a>
+
+      <nav>
+        <ul>
+          <li><a href="index.html#how">How it Works</a></li>
+          <li><a href="index.html#philosophy">Philosophy</a></li>
+          <li><a href="index.html#screens">Screens</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+
+      <a class="nav-appstore" href="https://apps.apple.com/us/app/just-do-three/id6760262038" aria-label="Download Just Do Three on the App Store">
+        <span class="nav-free">Free</span>
+        <img src="images/appstore.png" alt="Download on the App Store" />
+      </a>
     </div>
   </header>
 
@@ -249,12 +305,7 @@
 
     <section>
       <h2>Data Stored on Your Device</h2>
-      <p>All app data — including tasks, daily plans, and completion history — is stored exclusively on your device using Apple's SwiftData framework. This data never leaves your device unless you explicitly enable iCloud sync in your device Settings.</p>
-    </section>
-
-    <section>
-      <h2>iCloud Sync (Optional)</h2>
-      <p>If you have iCloud Drive enabled for Just Do Three in your device Settings, Apple may sync your data across your devices via iCloud. This sync is governed by Apple's iCloud Terms and Conditions and Privacy Policy. We do not have access to data stored in your iCloud account.</p>
+      <p>All app data — including tasks, daily plans, and completion history — is stored exclusively on your device using Apple's SwiftData framework. This data never leaves your device.</p>
     </section>
 
     <section>
