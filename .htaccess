@@ -11,5 +11,3 @@ RewriteRule ^ https://justdothree.com%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.justdothree\.com$ [NC]
 RewriteRule ^ https://justdothree.com%{REQUEST_URI} [R=301,L]
 
-# Sitemap
-Sitemap: https://justdothree.com/sitemap.xml
