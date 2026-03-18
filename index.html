@@ -656,6 +656,62 @@
       margin-top: 30px;
     }
 
+    /* Hamburger button */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 2px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Mobile nav dropdown */
+    .mobile-nav {
+      display: none;
+      background: rgba(10,15,15,0.97);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      z-index: 99;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 12px 0 16px;
+    }
+    .mobile-nav ul li a {
+      display: block;
+      padding: 13px 24px;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .mobile-nav ul li a:hover,
+    .mobile-nav ul li a.active {
+      color: var(--accent-soft);
+      background: rgba(15,185,177,0.07);
+    }
+
+    @media (max-width: 980px) {
+      .nav-hamburger { display: flex; }
+    }
+
     /* Nav App Store badge */
     .nav-appstore {
       display: flex;
@@ -731,12 +787,26 @@
         </ul>
       </nav>
 
+      <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+
       <a class="nav-appstore" href="https://apps.apple.com/us/app/just-do-three/id6760262038" aria-label="Download Just Do Three on the App Store">
         <span class="nav-free">Free</span>
         <img src="images/appstore.png" alt="Download on the App Store" />
       </a>
     </div>
   </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <ul>
+      <li><a href="#how">How it Works</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#screens">Screens</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+    </ul>
+  </nav>
 
   <main id="top">
     <section class="hero">
@@ -983,6 +1053,28 @@
       </div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileNav');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+          menu.setAttribute('aria-hidden', true);
+        }
+      });
+    })();
+  </script>
 
   <footer>
     <div class="wrap footer-row">
