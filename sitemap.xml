@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://justdothree.com/</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://justdothree.com/images/just-do-three-focus-productivity-app.webp</image:loc><image:caption>Just Do Three daily focus app</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/jdtscreenshot.webp</image:loc><image:caption>Just Do Three iPhone app showing three priority tasks</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/screenshot1.webp</image:loc><image:caption>Today's three priority tasks</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/screenshot2.webp</image:loc><image:caption>Task backlog list</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/screenshot3.webp</image:loc><image:caption>Productivity history and progress tracking</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/screenshot4.webp</image:loc><image:caption>Settings and preferences</image:caption></image:image>
+    <image:image><image:loc>https://justdothree.com/images/screenshot5.webp</image:loc><image:caption>Plan and schedule tasks ahead</image:caption></image:image>
   </url>
 
   <url>
