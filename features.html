@@ -414,6 +414,54 @@
       vertical-align: middle;
     }
 
+    .new-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cta);
+      background: rgba(183, 247, 138, 0.1);
+      border: 1px solid rgba(183, 247, 138, 0.3);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .simple-callout {
+      padding: 56px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .simple-callout-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 32px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(15,185,177,0.10), rgba(255,255,255,0.02));
+      border: 1px solid rgba(15,185,177,0.22);
+      text-align: center;
+    }
+    .simple-callout .kicker { margin-bottom: 14px; }
+    .simple-callout h2 {
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: var(--accent-bright);
+    }
+    .simple-callout p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0 auto 14px;
+      max-width: 600px;
+    }
+    .simple-callout p:last-child { margin-bottom: 0; }
+    .simple-callout .highlight {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
     .cta-box {
       border-radius: 34px;
       padding: 52px 34px;
@@ -521,6 +569,24 @@
       </div>
     </div>
 
+    <!-- Simple by default callout -->
+    <section class="simple-callout">
+      <div class="wrap">
+        <div class="simple-callout-inner">
+          <p class="kicker">Simple by default</p>
+          <h2>New features. Same simple JD3.</h2>
+          <p>
+            When a new feature would change the everyday feel of the app, we put it behind a
+            <strong class="highlight">switch in Settings</strong> — off by default, on when you want it.
+          </p>
+          <p>
+            The original Just Do Three — three tasks, one screen, nothing in the way — is always there.
+            Smaller refinements just quietly make the app better; the bigger shifts wait for you to opt in.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Today -->
     <section class="section section-alt">
       <div class="wrap feature-block">
@@ -612,11 +678,15 @@
             Life happens. If something doesn't get done, JD3 doesn't make you feel bad about it.
           </p>
           <ul class="detail-list">
-            <li>Roll a task to the next day with one tap</li>
+            <li>Roll a task to tomorrow with one tap</li>
+            <li>Schedule it for a specific day up to a week out</li>
             <li>Send it back to your backlog to tackle later</li>
             <li>Or just let it go — remove it entirely</li>
           </ul>
           <p style="margin-top: 20px;">
+            Got a lot to move? <strong>Bulk-apply</strong> the same choice to everything at once.
+          </p>
+          <p style="margin-top: 12px;">
             No red check marks, no guilt. Just a clean slate each morning and the
             flexibility to adjust as your priorities shift.
           </p>
@@ -661,8 +731,95 @@
       </div>
     </section>
 
-    <!-- Share -->
+    <!-- JDT at Work -->
+    <section class="section">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">JDT at Work <span class="new-badge">New</span></p>
+          <h2>Work and personal, kept separate.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Turn on <strong>JDT at Work</strong> in Settings and JD3 gives you two completely separate
+            contexts — one for work, one for the rest of your life.
+          </p>
+          <ul class="detail-list">
+            <li>Each context has its own backlog, today screen, and weekly plan</li>
+            <li>Switch with a quick segmented toggle — your three are always context-specific</li>
+            <li>Rollovers stay in their own lane: work tasks roll into work, personal into personal</li>
+          </ul>
+          <p style="margin-top: 20px;" class="highlight">
+            Off by default. Flip the switch when your day has two sides to it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capture -->
     <section class="section section-alt">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Capture <span class="new-badge">New</span></p>
+          <h2>Get tasks in fast.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            The faster you can get a task out of your head and into JD3, the more useful the app gets.
+            A few new ways to add tasks beyond just typing:
+          </p>
+          <ul class="detail-list">
+            <li><strong>Voice dictation</strong> — tap the mic and speak; on-device speech recognition by default</li>
+            <li><strong>Scan with Camera</strong> — point your phone at a list, sticky note, or whiteboard and JD3 reads the tasks</li>
+            <li><strong>Import from Photos</strong> — pull tasks out of a screenshot or photo you already have</li>
+            <li><strong>Siri shortcuts</strong> — "Hey Siri, add a task to Just Do Three" works without opening the app</li>
+            <li><strong>Paste a list</strong> or import a .txt / .csv to seed your backlog all at once</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add to Calendar -->
+    <section class="section">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Calendar <span class="new-badge">New</span></p>
+          <h2>Send a task to your Calendar.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Some tasks need a time slot. From any task, tap <strong>Add to iPhone Calendar</strong> to
+            create a Calendar event or a Reminder without leaving JD3.
+          </p>
+          <p>
+            Great for tasks that have to happen at a specific time — meetings, appointments, anything
+            you'd otherwise forget to put on your calendar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Export -->
+    <section class="section section-alt">
+      <div class="wrap feature-block">
+        <div class="feature-label">
+          <p class="kicker">Export <span class="new-badge">New</span></p>
+          <h2>Your tasks, on your terms.</h2>
+        </div>
+        <div class="feature-body">
+          <p>
+            Your tasks belong to you. <strong>Export to CSV</strong> from Settings to pull your backlog
+            (and optionally everything you've completed) out of the app any time you want.
+          </p>
+          <p>
+            Useful for backups, reviewing what you got done over a stretch, or just feeling good knowing
+            nothing is locked in.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share -->
+    <section class="section">
       <div class="wrap feature-block">
         <div class="feature-label">
           <p class="kicker">Share</p>
@@ -723,7 +880,7 @@
   <footer>
     <div class="wrap footer-row">
       <span>© 2026 Just Do Three · Also from this developer: <a href="https://pickswapapp.com/" rel="noopener">PickSwap</a></span>
-      <span><a href="features.html">Features</a> · <a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a> · <a href="about.html">About</a> · <a href="research.html">Research</a></span>
+      <span><a href="features.html">Features</a> · <a href="release-notes.html">Release Notes</a> · <a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a> · <a href="about.html">About</a> · <a href="research.html">Research</a></span>
     </div>
   </footer>
 </body>

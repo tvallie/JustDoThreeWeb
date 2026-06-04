@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://justdothree.com/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://justdothree.com/images/just-do-three-focus-productivity-app.webp</image:loc><image:caption>Just Do Three daily focus app</image:caption></image:image>
@@ -18,42 +18,49 @@
 
   <url>
     <loc>https://justdothree.com/features.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://justdothree.com/research.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
+    <loc>https://justdothree.com/release-notes.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://justdothree.com/about.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://justdothree.com/support.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://justdothree.com/privacy-policy.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://justdothree.com/terms-of-use.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

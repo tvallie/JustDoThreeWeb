@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-itunes-app" content="app-id=6760262038" />
+  <meta name="theme-color" content="#0a0f0f" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="preconnect" href="https://apps.apple.com" />
+  <title>Release Notes | Just Do Three</title>
+  <meta name="description" content="What's new in Just Do Three. Version history and release notes for the iPhone focus app — new features, improvements, and fixes." />
+  <meta name="keywords" content="Just Do Three release notes, JD3 changelog, version history, what's new, iPhone app updates, focus app updates" />
+  <link rel="canonical" href="https://justdothree.com/release-notes.html" />
+  <meta property="og:title" content="Release Notes | Just Do Three" />
+  <meta property="og:description" content="What's new in Just Do Three. Version history and release notes for the iPhone focus app." />
+  <meta property="og:image" content="https://justdothree.com/images/just-do-three-focus-productivity-app.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://justdothree.com/release-notes.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Just Do Three" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@PickSwapApp" />
+  <meta name="twitter:creator" content="@PickSwapApp" />
+  <meta name="twitter:title" content="Release Notes | Just Do Three" />
+  <meta name="twitter:description" content="What's new in Just Do Three. Version history and release notes for the iPhone focus app." />
+  <meta name="twitter:image" content="https://justdothree.com/images/just-do-three-focus-productivity-app.webp" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Release Notes – Just Do Three",
+    "description": "Version history and release notes for the Just Do Three iPhone focus app.",
+    "url": "https://justdothree.com/release-notes.html",
+    "primaryImageOfPage": "https://justdothree.com/images/just-do-three-focus-productivity-app.webp",
+    "about": {
+      "@type": "MobileApplication",
+      "name": "Just Do Three",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "url": "https://apps.apple.com/us/app/just-do-three/id6760262038",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://justdothree.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Release Notes", "item": "https://justdothree.com/release-notes.html" }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0f0f;
+      --bg-soft: #101717;
+      --panel: rgba(255,255,255,0.04);
+      --panel-border: rgba(255,255,255,0.1);
+      --text: #f2f6f5;
+      --muted: rgba(242,246,245,0.65);
+      --accent: #0fb9b1;
+      --accent-soft: #8ce7e0;
+      --cta: #b7f78a;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --max: 900px;
+      --radius: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background:
+        radial-gradient(circle at 22% 16%, rgba(15, 185, 177, 0.22), transparent 24%),
+        radial-gradient(circle at 76% 20%, rgba(15, 185, 177, 0.10), transparent 18%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,15,15,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-mark { height: 36px; width: auto; display: block; }
+
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+
+    /* Hamburger button */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      height: 2px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Mobile nav dropdown */
+    .mobile-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      display: none;
+      background: rgba(10,15,15,0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      z-index: 99;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav ul {
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 12px 0 16px;
+    }
+    .mobile-nav ul li a {
+      display: block;
+      padding: 13px 24px;
+      text-align: right;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .mobile-nav ul li a:hover,
+    .mobile-nav ul li a.active {
+      color: var(--accent-soft);
+      background: rgba(15,185,177,0.07);
+    }
+
+    @media (max-width: 980px) {
+      .nav-hamburger { display: flex; }
+    }
+
+    /* Nav App Store badge */
+    .nav-appstore {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-appstore:hover { transform: scale(1.04); }
+    .nav-appstore img { height: 32px; width: auto; display: block; }
+    .nav-free {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cta);
+    }
+
+    /* ── Page hero ── */
+    .page-hero {
+      padding: 52px 0 44px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-hero .kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-inline: auto;
+      line-height: 1.8;
+    }
+
+    /* ── Content ── */
+    .notes-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .release {
+      position: relative;
+      padding: 28px 28px 26px;
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      margin-bottom: 28px;
+      transition: border-color 0.2s;
+    }
+    .release:hover { border-color: rgba(15,185,177,0.35); }
+
+    .release-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .release-version {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--accent-soft);
+    }
+
+    .release-date {
+      font-size: 0.85rem;
+      color: rgba(242,246,245,0.45);
+      font-weight: 500;
+    }
+
+    .release-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cta);
+      background: rgba(183, 247, 138, 0.1);
+      border: 1px solid rgba(183, 247, 138, 0.3);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-left: auto;
+    }
+
+    .release-notes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .release-notes-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .release-notes-list li::before {
+      content: "→";
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .release-notes-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .release-initial {
+      text-align: center;
+      padding: 36px 28px;
+    }
+    .release-initial .release-header {
+      justify-content: center;
+      border-bottom: none;
+      margin-bottom: 8px;
+      padding-bottom: 0;
+    }
+    .release-initial p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .notes-intro {
+      margin-bottom: 48px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .notes-cta {
+      margin-top: 48px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: rgba(15,185,177,0.06);
+      border: 1px solid rgba(15,185,177,0.18);
+      text-align: center;
+    }
+    .notes-cta p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .notes-cta a {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+    }
+    .notes-cta a img { height: 44px; width: auto; display: block; }
+    .notes-cta .nav-free { color: var(--cta); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 0 48px;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.94rem;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      flex-wrap: wrap;
+    }
+    footer a { color: rgba(255,255,255,0.48); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 980px) {
+      .nav nav ul { display: none; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .page-hero { padding: 60px 0 52px; }
+      .notes-content { padding: 52px 24px 72px; }
+      .release { padding: 24px 22px; }
+      .release-badge { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="images/bulbwebsitewords.png" alt="Just Do Three" class="brand-mark" width="442" height="269">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html#how">How it Works</a></li>
+          <li><a href="index.html#philosophy">Philosophy</a></li>
+          <li><a href="index.html#screens">Screens</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+        </ul>
+      </nav>
+      <a class="nav-appstore" href="https://apps.apple.com/us/app/just-do-three/id6760262038" target="_blank" rel="noopener" aria-label="Download Just Do Three on the App Store">
+        <span class="nav-free">Free</span>
+        <img src="images/appstore.png" alt="Download on the App Store" width="442" height="162" />
+      </a>
+
+      <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul>
+        <li><a href="index.html#how">How it Works</a></li>
+        <li><a href="index.html#philosophy">Philosophy</a></li>
+        <li><a href="index.html#screens">Screens</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="kicker">Release Notes</p>
+      <h1>What's new in JD3.</h1>
+      <p>Every update to Just Do Three, in one place. Newest first.</p>
+    </div>
+  </div>
+
+  <div class="notes-content">
+
+    <p class="notes-intro">Just Do Three keeps getting better, one focused release at a time. Here's what's shipped so far.</p>
+
+    <section class="release">
+      <div class="release-header">
+        <span class="release-version">Version 3</span>
+        <span class="release-date">May 3, 2026</span>
+        <span class="release-badge">Latest</span>
+      </div>
+      <ul class="release-notes-list">
+        <li><strong>JDT at Work</strong> — keep work and personal tasks separate with a quick toggle. Each context has its own backlog, plan, and rollovers.</li>
+        <li><strong>Add to iPhone Calendar</strong> — turn any task into a Calendar event or Reminder right from JD3.</li>
+        <li><strong>Export tasks to CSV</strong> — pull your backlog (and optionally completed tasks) out of the app for backups or analysis.</li>
+        <li><strong>Scan with Camera &amp; Import from Photos</strong> — point your phone at a list, sticky note, or whiteboard and JD3 reads the tasks for you.</li>
+        <li>Rollover fixes: no more phantom recurring tasks, and tasks already in a past stretch-goal slot no longer resurface.</li>
+      </ul>
+    </section>
+
+    <section class="release">
+      <div class="release-header">
+        <span class="release-version">Version 2.1</span>
+        <span class="release-date">April 3, 2026</span>
+      </div>
+      <ul class="release-notes-list">
+        <li><strong>Smarter rollovers</strong> — each unfinished task now offers four clear choices, with a bulk-apply bar and the option to schedule it for a specific day.</li>
+        <li><strong>Optional task dates</strong> — give a task a date when it matters, leave it off when it doesn't.</li>
+        <li><strong>Today completion haptics</strong> — finish your three and feel a little celebration (with vibration fallback on older devices).</li>
+        <li>Polished backlog and planning flows, plus rollover pill-button fixes.</li>
+      </ul>
+    </section>
+
+    <section class="release">
+      <div class="release-header">
+        <span class="release-version">Version 2</span>
+        <span class="release-date">March 20, 2026</span>
+      </div>
+      <ul class="release-notes-list">
+        <li><strong>First-launch onboarding</strong> — a quick 4-slide walkthrough so new folks get the JD3 idea right away.</li>
+        <li><strong>New splash screen</strong> with the bulb logo and a teal glow.</li>
+        <li><strong>Brag &amp; share card</strong> — celebrate a finished day and share it however you like.</li>
+        <li><strong>Paste multiple tasks</strong> into the backlog at once — great for moving lists in from other apps.</li>
+        <li>Backlog screen: prominent Add task and Import File buttons.</li>
+        <li>Fixes to the Add-a-task button visibility, celebration banner, and Today slot counting.</li>
+      </ul>
+    </section>
+
+    <section class="release release-initial">
+      <div class="release-header">
+        <span class="release-version">Version 1</span>
+        <span class="release-date">March 12, 2026</span>
+      </div>
+      <p>Initial release.</p>
+    </section>
+
+    <div class="notes-cta">
+      <p>Ready to find, focus, and finish your three?</p>
+      <a href="https://apps.apple.com/us/app/just-do-three/id6760262038" target="_blank" rel="noopener" aria-label="Download Just Do Three on the App Store">
+        <span class="nav-free">Free</span>
+        <img src="images/appstore.png" alt="Download on the App Store" width="442" height="162" />
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Just Do Three · Also from this developer: <a href="https://pickswapapp.com/" rel="noopener">PickSwap</a></span>
+      <span><a href="features.html">Features</a> · <a href="release-notes.html">Release Notes</a> · <a href="privacy-policy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="terms-of-use.html">Terms</a> · <a href="about.html">About</a> · <a href="research.html">Research</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobileNav');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', false);
+          menu.setAttribute('aria-hidden', true);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
