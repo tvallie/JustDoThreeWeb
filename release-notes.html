@@ -312,6 +312,19 @@
       font-weight: 600;
     }
 
+    .phrase {
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.88em;
+      font-style: normal;
+      color: var(--accent-soft);
+      background: rgba(15,185,177,0.10);
+      border: 1px solid rgba(15,185,177,0.22);
+      border-radius: 6px;
+      padding: 1px 8px;
+      white-space: nowrap;
+    }
+
     .release-initial {
       text-align: center;
       padding: 36px 28px;
@@ -447,7 +460,7 @@
       <ul class="release-notes-list">
         <li><strong>Apple Watch companion</strong> — JD3 now lives on your wrist. Today page with tap-to-complete and a stretch section, plus a Work page when JDT at Work is on. Syncs live with your iPhone.</li>
         <li><strong>Voice dictation</strong> — tap the mic in any task field and just talk. On-device speech recognition by default.</li>
-        <li><strong>Siri quick capture</strong> — say <em>"Hey Siri, add a task to Just Do Three"</em> and dictate the task without opening the app. When JDT at Work is on, <em>"Hey Siri, add a work task to Just Do Three"</em> drops it straight into your Work backlog.</li>
+        <li><strong>Siri quick capture</strong> — say <span class="phrase">Hey Siri, add a task to Just Do Three</span> and dictate the task without opening the app. When JDT at Work is on, <span class="phrase">Hey Siri, add a work task to Just Do Three</span> drops it straight into your Work backlog.</li>
         <li><strong>Optional task notes</strong> — add a note to any task when you need to. Off by default; flip the switch in Settings, look for the indicator on tasks that have a note.</li>
         <li>Rollover refinements: backlogged tasks no longer resurface, and Work / Personal contexts stay properly separated through rollovers.</li>
       </ul>
