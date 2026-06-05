@@ -292,9 +292,8 @@
     }
 
     .release-notes-list li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      position: relative;
+      padding-left: 24px;
       font-size: 0.98rem;
       color: var(--muted);
       line-height: 1.65;
@@ -303,8 +302,9 @@
     .release-notes-list li::before {
       content: "→";
       color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 2px;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     .release-notes-list strong {
