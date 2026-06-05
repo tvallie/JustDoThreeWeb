@@ -150,6 +150,10 @@
       font-size: 0.98rem;
     }
 
+    nav ul a { color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
+    nav ul a:hover { color: #fff; }
+    nav ul a.active { color: var(--accent); font-weight: 600; }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -1136,6 +1140,45 @@
           menu.setAttribute('aria-hidden', true);
         }
       });
+    })();
+
+    // Scroll-spy: highlight the active section link in the top nav as user scrolls
+    (function () {
+      var sectionIds = ['how', 'philosophy', 'screens'];
+      var sections = sectionIds
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      var navLinks = {};
+      document.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]').forEach(function (a) {
+        var hash = a.getAttribute('href').slice(1);
+        if (!navLinks[hash]) navLinks[hash] = [];
+        navLinks[hash].push(a);
+      });
+
+      function clearActive() {
+        Object.keys(navLinks).forEach(function (id) {
+          navLinks[id].forEach(function (a) { a.classList.remove('active'); });
+        });
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        // Pick the entry with the largest intersection ratio that's currently intersecting
+        var best = null;
+        entries.forEach(function (e) {
+          if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) {
+            best = e;
+          }
+        });
+        if (!best) return;
+        var id = best.target.id;
+        if (!navLinks[id]) return;
+        clearActive();
+        navLinks[id].forEach(function (a) { a.classList.add('active'); });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+      sections.forEach(function (s) { observer.observe(s); });
     })();
   </script>
 
