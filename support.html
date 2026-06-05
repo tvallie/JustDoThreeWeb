@@ -199,6 +199,7 @@
     }
 
     nav ul a:hover { color: var(--text); }
+    nav ul a.active { color: var(--accent); font-weight: 600; }
 
     /* Hamburger button */
     .nav-hamburger {
@@ -254,7 +255,7 @@
       transition: color 0.2s, background 0.2s;
     }
     .mobile-nav ul li a:hover,
-    .mobile-nav ul li a.active {
+    .mobile-nav ul li a.active { font-weight: 600;
       color: var(--accent-soft);
       background: rgba(15,185,177,0.07);
     }
